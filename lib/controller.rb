@@ -21,6 +21,7 @@ class Controller
   def read
     posts = @storage.all_posts
     post_index = @view.ask_post_index_to_read
+    posts[post_index].scrape_post
     @view.display_post(posts, post_index)
   end
 

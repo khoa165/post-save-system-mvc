@@ -3,7 +3,7 @@ class View
     puts '-----------------------------------------'
     posts.each_with_index do |post, index|
       post_info = "#{index + 1}. "
-      post_info += post.read? ? "[X]" : "[]"
+      post_info += post.read? ? '[X]' : '[]'
       post_info += " - #{post.title} (#{post.author})"
       puts post_info
     end

@@ -23,6 +23,8 @@ class Storage
   def parse_csv
     CSV.foreach(@csv_file_path) do |row|
       new_post = Post.new(row[0])
+      new_post.author = row[1]
+      new_post.title = row[2]
       # new_post.scrape_post
       @posts << new_post
     end
@@ -31,7 +33,8 @@ class Storage
   def store_to_csv
     CSV.open(@csv_file_path, 'wb') do |csv|
       @posts.each do |post|
-        csv << [post.path, post.author]
+        p post.title
+        csv << [post.path, post.author, post.title]
       end
     end
   end

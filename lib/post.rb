@@ -2,7 +2,8 @@ require 'open-uri'
 require 'nokogiri'
 
 class Post
-  attr_reader :link, :title, :author, :content, :path
+  attr_reader :link, :content, :path
+  attr_accessor :author, :title
   def initialize(path)
     @path = path
     @link = "https://www.freecodecamp.org/news/#{path}"
@@ -21,7 +22,6 @@ class Post
   end
 
   def scrape_post
-    # TODO: return an array of Antiques found of Craiglist for this 'city'.
     html_content = open(@link).read
     doc = Nokogiri::HTML(html_content)
     scrape_title(doc)
