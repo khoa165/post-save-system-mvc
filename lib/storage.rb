@@ -23,7 +23,7 @@ class Storage
   def parse_csv
     CSV.foreach(@csv_file_path) do |row|
       new_post = Post.new(row[0])
-      new_post.scrape_post
+      # new_post.scrape_post
       @posts << new_post
     end
   end
