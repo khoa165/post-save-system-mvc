@@ -1,5 +1,5 @@
-require "open-uri"
-require "nokogiri"
+require 'open-uri'
+require 'nokogiri'
 
 class Post
   attr_reader :link, :title, :author, :content, :path
